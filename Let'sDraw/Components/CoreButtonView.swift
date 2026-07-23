@@ -9,16 +9,16 @@ import SwiftUI
 
 struct CoreButtonView: View {
     var title: String
-    var destination: String
+    var destination: AppDestination
+    @Binding var path: NavigationPath
     
     var body: some View {
-        
         Button(action: {
             //action
-            
+            path.append(destination)
         }) {
             Text(title)
-                .font(.system(size: 30, weight: .bold, design: .rounded))
+                .font(.system(size: 30, weight: .bold, design: .monospaced))
                 .foregroundStyle(.black)
                 .padding()
                 .background(.yellow)

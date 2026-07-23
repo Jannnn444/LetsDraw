@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var path = NavigationPath() //only swap inside this object
+    
     var body: some View {
         ZStack {
             Color(.blue).ignoresSafeArea()
@@ -24,13 +26,24 @@ struct ContentView: View {
                 
                 
                 VStack {
-                    CoreButtonView(title: "CATALOG", destination: "")
+                    CoreButtonView(title: "CATALOG", destination: .catalog, path: $path)
                        
-                    CoreButtonView(title: "CREATOR", destination: "")
+                    CoreButtonView(title: "CREATOR", destination: .profile, path: $path)
                     
-                    CoreButtonView(title: "SUPPORT", destination: "")
+                    CoreButtonView(title: "SETTINGS", destination: .settiings, path: $path)
                        
-                }.offset(y: 50)
+                }
+                .offset(y: 50)
+                .navigationDestination(for: AppDestination.self) { destination in
+                    switch destination {
+                    case .catalog:
+                        CatalogView()
+                    case .profile:
+                        ProfileView()
+                    case .settiings:
+                        SettingsView()
+                    }
+                }
                 
             }
             .padding()
