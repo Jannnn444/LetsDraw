@@ -10,7 +10,15 @@ import SwiftUI
 
 struct SettingsView : View {
     var body: some View {
-        Text("hi")
-            .foregroundStyle(.black)
+        ZStack {
+            Color.blue.ignoresSafeArea()
+            Text("hi")
+                .foregroundStyle(.black)
+        }
+    
     }
+}
+
+#Preview {
+    SettingsView()
 }
