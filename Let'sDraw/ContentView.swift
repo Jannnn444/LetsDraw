@@ -9,13 +9,32 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            Color(.blue).ignoresSafeArea()
+            Image(systemName: "")
+            
+            VStack {
+                Text("Evening Adventurer, Beat Monster!")
+                    .font(.system(size: 50))
+                    .fontDesign(.monospaced)
+                    .foregroundStyle(.black)
+                    .bold()
+                    .fontWeight(.heavy)
+                    .padding()
+                
+                
+                VStack {
+                    CoreButtonView(title: "CATALOG", destination: "")
+                       
+                    CoreButtonView(title: "CREATOR", destination: "")
+                    
+                    CoreButtonView(title: "SUPPORT", destination: "")
+                       
+                }.offset(y: 50)
+                
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
