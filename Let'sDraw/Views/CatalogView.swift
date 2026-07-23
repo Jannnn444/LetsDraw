@@ -28,13 +28,14 @@ struct CatalogView : View {
                 }
             }.padding()
         }
-        .navigationTitle("CATALOG")
-        .font(.system(size: 50, weight: .bold, design: .monospaced))
-        .foregroundStyle(.black)
-        .fontWeight(.heavy)
-
-
-        
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("CATALOG")
+                    .font(.system(size: 34, weight: .bold, design: .monospaced))
+                    .foregroundStyle(.black)
+            }
+        }
     }
 }
 
